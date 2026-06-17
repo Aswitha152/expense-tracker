@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   const fetchTransactions = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/transactions');
+      const res = await axios.get('https://expense-tracker-backend-u2qf.onrender.com/api/transactions');
       setTransactions(res.data);
     } catch (error) {
       console.error(error);
@@ -27,7 +27,7 @@ const Dashboard = () => {
   const addTransaction = async () => {
     if (!description || !amount || !category) return alert('Please fill all fields!');
     try {
-      await axios.post('http://localhost:5000/api/transactions', {
+      await axios.post('https://expense-tracker-backend-u2qf.onrender.com/api/transactions', {
         description,
         amount: parseFloat(amount),
         type,
@@ -44,7 +44,7 @@ const Dashboard = () => {
 
   const deleteTransaction = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/transactions/${id}`);
+      await axios.delete(`https://expense-tracker-backend-u2qf.onrender.com/api/transactions/${id}`);
       fetchTransactions();
     } catch (error) {
       console.error(error);

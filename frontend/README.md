@@ -1,70 +1,92 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 💰 Expense Tracker
 
-## Available Scripts
+A full-stack MERN (MongoDB, Express, React, Node.js) web application to track income and expenses, visualize spending by category, and monitor balance in real time.
 
-In the project directory, you can run:
+**🔗 Live App:** https://expense-tracker-neon-nine-63.vercel.app/
+**📂 Backend API:** https://expense-tracker-backend-u2qf.onrender.com
+**💻 GitHub:** https://github.com/Aswitha152/expense-tracker
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✨ Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Add income and expense transactions with category and amount
+- Delete transactions
+- Real-time balance calculation
+- Income vs Expense bar chart
+- Expense breakdown by category (pie chart)
+- Fully responsive UI
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Frontend:** React.js, Axios, Recharts, CSS
+**Backend:** Node.js, Express.js
+**Database:** MongoDB (Mongoose ODM)
+**Deployment:** Vercel (frontend), Render (backend), MongoDB Atlas (database)
 
-### `npm run build`
+## 🏗️ Architecture
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+Browser → React (Vercel) → REST API (Express, Render) → MongoDB Atlas
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The frontend makes HTTP requests via Axios to a REST API. The API exposes
+`GET / POST / DELETE` endpoints under `/api/transactions`, backed by a
+Mongoose schema and a MongoDB Atlas cluster.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📁 Project Structure
 
-### `npm run eject`
+```
+expense-tracker/
+├── backend/
+│   ├── config/db.js          # MongoDB connection
+│   ├── models/Transaction.js # Mongoose schema
+│   ├── routes/transactions.js# GET, POST, DELETE routes
+│   └── index.js               # Express app entry point
+└── frontend/
+    └── src/
+        ├── components/Dashboard.js  # Main UI + charts
+        └── App.js
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🔌 API Endpoints
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Method | Endpoint | Description |
+|--------|----------|--------------|
+| GET | `/api/transactions` | Fetch all transactions |
+| POST | `/api/transactions` | Add a new transaction |
+| DELETE | `/api/transactions/:id` | Delete a transaction by ID |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🚀 Running Locally
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+# Backend
+cd backend
+npm install
+npm start        # runs on http://localhost:5000
 
-## Learn More
+# Frontend
+cd frontend
+npm install
+npm start        # runs on http://localhost:3000
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Create a `.env` file inside `backend/` with:
+```
+MONGO_URI=your_mongodb_connection_string
+PORT=5000
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📈 Future Improvements
 
-### Code Splitting
+- User authentication (JWT/Firebase) so each user has their own transactions
+- Edit transaction functionality
+- Monthly/weekly filtering
+- Export transactions to CSV
+- Pagination for large transaction lists
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 👩‍💻 Author
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Aswitha R**
+[LinkedIn](https://linkedin.com/in/aswitha-r) · [GitHub](https://github.com/Aswitha152)
